@@ -78,7 +78,7 @@ func (f *JSONFormatter) Format(entry *Entry) ([]byte, error) {
 		newData[f.DataKey] = data
 		data = newData
 	}
-``
+
 	prefixFieldClashes(data, f.FieldMap, entry.HasCaller())
 
 	timestampFormat := f.TimestampFormat
