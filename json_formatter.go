@@ -78,7 +78,7 @@ func (f *JSONFormatter) Format(entry *Entry) ([]byte, error) {
 		newData[f.DataKey] = data
 		data = newData
 	}
-
+``
 	prefixFieldClashes(data, f.FieldMap, entry.HasCaller())
 
 	timestampFormat := f.TimestampFormat
@@ -96,7 +96,7 @@ func (f *JSONFormatter) Format(entry *Entry) ([]byte, error) {
 	data[f.FieldMap.resolve(FieldKeyLevel)] = entry.Level.String()
 	if entry.HasCaller() {
 		funcVal := entry.Caller.Function
-		fileVal := fmt.Sprintf("%s:%d", entry.Caller.File, entry.Caller.Line)
+		fileVal := ""//fmt.Sprintf("%s:%d", entry.Caller.File, entry.Caller.Line)
 		if f.CallerPrettyfier != nil {
 			funcVal, fileVal = f.CallerPrettyfier(entry.Caller)
 		}
